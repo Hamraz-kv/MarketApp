@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+    Registration page
+{% endblock %}
+{% block content %}
+    <body class="text-center">
+    <div class="container" style="margin-top: 30px">
+        <h1 class="h3 mb-3 font-weight-normal" >
+            Please Create Your Account
+        </h1>
+      <form method="POST" class="form-register" style="color:aliceblue">
+        <!-- POST has the ability to make changes in database -->
+        {{form.hidden_tag()}}
+        {{form.username.label()}}
+        {{form.username(class="form-control",placeholder="User Name")}}
+
+        {{form.email.label()}} 
+        {{form.email(class="form-control",placeholder="Email Id")}}
+
+        {{form.pswd1.label()}}
+        {{form.pswd1(class="form-control",placeholder="Password1")}}
+
+        {{form.pswd2.label()}}
+        {{form.pswd2(class="form-control",placeholder="Password2")}}
+        <br> 
+        <div>
+            <h6>Already have an account?</h6>
+            <a class="btn btn-lg btn-block btn-secondary" href="{{url_for('login_page')}}">Login</a>
+        </div>
+        <br>
+        {{form.submit(class="btn btn-lg btn-block btn-primary")}}
+      </form>
+    </div>
+    </body>
+    
+{% endblock %}

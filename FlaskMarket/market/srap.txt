@@ -1,0 +1,100 @@
+# if purchase_form.validate_on_submit():
+    #     print("PURCHASED")
+    #     # print(purchase_form.__dict__)
+    #     # print(purchase_form['submit'])
+    #     # print(purchase_form['purchase_item'])
+    #     print(request.form.get('purchased_item'))
+>>> python
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'python' is not defined
+>>> from market import db
+C:\Users\USER\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_sqlalchemy\__init__.py:872: FSADeprecationWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True or False to suppress this warning.
+  warnings.warn(FSADeprecationWarning(
+>>> db.create_all()
+>>>
+KeyboardInterrupt
+>>> clear
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'clear' is not defined
+>>> from market import item
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ImportError: cannot import name 'item' from 'market' (D:\FlaskMarket\market.py)
+>>> from market import Item
+>>> item1=Item(name="Redmi note 7s",barcode='876987654321',price=500,description='desc')
+>>> db.session.add(item1)
+>>> db.session.commit()
+>>> Item.query.all()
+[<Item 1>]
+>>>
+KeyboardInterrupt
+>>>
+KeyboardInterrupt
+>>> item2=Item(name="ASUS Laptop",barcode='234167790548',price=19000,description='descri')
+>>> db.session.add(item2)
+>>> db.session.commit()
+>>> Item.query.all()
+[<Item 1>, <Item 2>]
+
+ from market import db
+>>> Item.query.all()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'Item' is not defined. Did you mean: 'iter'?
+>>> from market import Item
+>>> Item.query.all()
+[Item.Redmi note 7s, Item.ASUS Laptop]
+>>> for x in Item.query.all():
+...   x.name
+...   x.price
+...   x.description
+...
+'Redmi note 7s'
+500
+'desc'
+'ASUS Laptop'
+19000
+'descri'
+>>> os.system('cls')
+
+>>> u1=User(username='jazi', email='jazi234@gmail.com',paswd_hash='123456')
+>>> db.session.add()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: add() missing 1 required positional argument: 'instance'
+>>> db.session.add(u1)
+>>> db.session.commit()
+>>> User.query.all
+<bound method Query.all of <flask_sqlalchemy.BaseQuery object at 0x00000245FF886FE0>>
+>>> User.query.all()
+[<User 1>]
+>>> I1=Item(name="Redmi note 7s",barcode='876987654321',price=500,description='desc')
+>>> db.session.add(I1)
+>>> db.session.commit()
+>>> I2=Item(name="ASUS Laptop",barcode='234167790548',price=19000,description='desc__')
+>>> db.session.add(I2)
+>>> db.session.commit()
+>>> Item.query.all()
+[Item.Redmi note 7s, Item.ASUS Laptop]
+>>> x=Item.query.filter_by(name="ASUS Laptop").first()
+>>> x
+Item.ASUS Laptop
+>>> x.owner=User.query.filter_by(username="jazi").first.id()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'function' object has no attribute 'id'
+>>> x.owner=User.query.filter_by(username="jazi").first().id
+>>> x
+Item.ASUS Laptop
+>>> x.name
+'ASUS Laptop'
+>>> x.owner
+1
+>>> db.session.add(x)
+>>> db.session.commit()
+>>> x.owner
+1
+>>>
+
